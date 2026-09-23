@@ -5,7 +5,7 @@
 You have previously used Docker to create a deployment image for MOPAC.
 **You will now create a new deployment image for MOPAC, with the additional requirement that it must use a multi-stage build process.**
 
-The GitHub repository for MOPAC is available [here](https://github.com/openmopac/mopac). Note that although there are already Docker containers available for MOPAC, yours must conform to the following constraints: (1) it must use the `ubuntu:22.04` image as its base; (2) it must build MOPAC from source, using CMake (the MOPAC documentation in the `README.md` file linked above describes how to build MOPAC using CMake); (3) it must be possible for the end-user to run MOPAC with the following command:
+The GitHub repository for MOPAC is available [here](https://github.com/openmopac/mopac). Note that although there are already Docker containers available for MOPAC, yours must conform to the following constraints: (1) it must use the `ubuntu:26.04` image as its base; (2) it must build MOPAC from source, using CMake (the MOPAC documentation in the `README.md` file linked above describes how to build MOPAC using CMake); (3) it must be possible for the end-user to run MOPAC with the following command:
 
 ```
 docker run --rm -v <volume_options> <image_name> <input_file_name>
@@ -13,6 +13,7 @@ docker run --rm -v <volume_options> <image_name> <input_file_name>
 
 Follow best practices for container development.
 **In addition, the image must be built with a multi-stage build, which should be competently designed to minimize the size of the image.**
+Your final stage should not use `apt`, `apt-get`, or a similar package manager at all. 
 You may reuse as much code from your previous MOPAC deployment image as you wish.
 
 To find the Ubuntu package names for software dependencies that you want to install with `apt-get`, you can use the [Ubuntu Packages Search](https://packages.ubuntu.com/).
