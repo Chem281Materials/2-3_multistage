@@ -13,7 +13,7 @@ podman run --rm -v <volume_options> <image_name> <input_file_name>
 
 Follow best practices for container development.
 **In addition, the image must be built with a multi-stage build, which should be competently designed to minimize the size of the image.**
-Your final stage should not use `apt`, `apt-get`, or a similar package manager at all. 
+Your final stage should not execute `apt`, `apt-get`, or a similar package manager at all. 
 You may reuse as much code from your previous MOPAC deployment image as you wish.
 
 To find the Ubuntu package names for software dependencies that you want to install with `apt-get`, you can use the [Ubuntu Packages Search](https://packages.ubuntu.com/).
